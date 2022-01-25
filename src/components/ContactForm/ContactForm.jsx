@@ -19,11 +19,17 @@ const ContactForm = ({ submitted }) => {
     console.log();
   };
 
+  const resetFormFields = () => {
+    setName('');
+    setNumber('');
+    setId('');
+  };
+
   const submitHandler = e => {
     e.preventDefault();
 
     submitted({ name, number, id });
-    e.target.reset();
+    resetFormFields();
   };
 
   return (
