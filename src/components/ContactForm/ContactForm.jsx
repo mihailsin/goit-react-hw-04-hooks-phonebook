@@ -1,7 +1,8 @@
-import { nanoid } from 'nanoid';
-
 import { useState } from 'react';
+import { nanoid } from 'nanoid';
 import { Form, Label, Input, Button, Wrapper } from './ContactForm.styled';
+import propTypes from 'prop-types';
+
 const ContactForm = ({ submitted }) => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
@@ -16,7 +17,6 @@ const ContactForm = ({ submitted }) => {
     } else setNumber(e.target.value);
 
     setId(nanoid(10));
-    console.log();
   };
 
   const resetFormFields = () => {
@@ -61,6 +61,10 @@ const ContactForm = ({ submitted }) => {
       </Wrapper>
     </Form>
   );
+};
+
+ContactForm.propTypes = {
+  submitted: propTypes.func.isRequired,
 };
 
 export default ContactForm;
