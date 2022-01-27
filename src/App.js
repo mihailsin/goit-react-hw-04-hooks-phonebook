@@ -12,7 +12,7 @@ const App = () => {
   const parsedContacts = JSON.parse(savedContacts);
 
   const [contacts, setContacts] = useState(() => {
-    return parsedContacts ?? '';
+    return parsedContacts ?? [];
   });
   const [filter, setFilter] = useState('');
 
