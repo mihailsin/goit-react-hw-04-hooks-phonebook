@@ -6,7 +6,6 @@ import propTypes from 'prop-types';
 const ContactForm = ({ submitted }) => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
-  const [id, setId] = useState('');
 
   const nameInputId = nanoid(7);
   const numberInputid = nanoid(7);
@@ -15,20 +14,17 @@ const ContactForm = ({ submitted }) => {
     if (e.target.name === 'name') {
       setName(e.target.value);
     } else setNumber(e.target.value);
-
-    setId(nanoid(10));
   };
 
   const resetFormFields = () => {
     setName('');
     setNumber('');
-    setId('');
   };
 
   const submitHandler = e => {
     e.preventDefault();
 
-    submitted({ name, number, id });
+    submitted({ name, number, id: nanoid(10) });
     resetFormFields();
   };
 
